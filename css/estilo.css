@@ -55,12 +55,16 @@ p {
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     display: block;
     margin: 0 auto;
+    object-fit: contain;
 }
 
 /* Ajustes para pantallas pequeñas (Android) */
 @media (max-width: 600px) {
     .imagen-portada {
         max-width: 100%;
+        max-height: 60vh;
+        width: auto;
         height: auto;
+        object-fit: contain;
     }
 }
