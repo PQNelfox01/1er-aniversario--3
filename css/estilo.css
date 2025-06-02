@@ -41,3 +41,8 @@ p {
 .botones a:hover {
     background-color: #ff1493;
 }
+
+.deshabilitado {
+    pointer-events: none;
+    opacity: 0.5;
+}
