@@ -55,21 +55,24 @@ body {
   max-width: 1100px;
   height: 400px;
   margin: auto;
-  overflow: hidden;
+  overflow: auto;
+  gap: 16px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .galeria-línea img {
-  width: 150px;
-  flex-grow: 1;
+  flex: 0 0 auto;
+  width: 180px;
+  max-width: 250px;
   object-fit: cover;
   opacity: .8;
-  transition: .5s ease;
   border-radius: 10px;
-  margin: 0 8px;
+  transition: 0.5s ease;
+  cursor: pointer;
 }
 
 .galeria-línea img:hover {
-  cursor: pointer;
   width: 300px;
   opacity: 1;
   filter: contrast(110%);
@@ -80,6 +83,7 @@ body {
   .galeria-línea {
     flex-direction: column;
     height: auto;
+    overflow-x: visible;
   }
 
   .galeria-línea img {
