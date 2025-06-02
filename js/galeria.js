@@ -17,3 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+window.addEventListener('load', () => {
+  const galeria = document.querySelector('#otros-momentos .galeria-línea');
+  if (!galeria) return;
+
+  let scrollAmount = 0;
+  const scrollStep = 1; // píxeles a mover cada frame
+  const maxScroll = galeria.scrollWidth - galeria.clientWidth;
+
+  function autoScroll() {
+    scrollAmount += scrollStep;
+    if (scrollAmount >= maxScroll) {
+      scrollAmount = 0; // reset para loop
+    }
+    galeria.scrollLeft = scrollAmount;
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+});
