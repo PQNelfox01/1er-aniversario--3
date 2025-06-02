@@ -1,55 +1,67 @@
 body {
-    margin: 0;
-    background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #ffe1e1, #ffd1f1);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-.titulo h1 {
-    margin-top: 40px;
-    animation: aparecer 2s ease-in-out;
+.portada {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #ffdee9, #b5fffc);
+  padding: 40px;
+}
+
+.portada h1 {
+  font-size: 2.5em;
+  color: #b30059;
+  margin-bottom: 20px;
+}
+
+.portada p {
+  font-size: 1.2em;
+  color: #4b004b;
+}
+
+.boton {
+  margin-top: 30px;
+  background-color: #ff69b4;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.album {
+  padding: 60px 20px;
 }
 
 .galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.galeria img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.5s ease;
-    animation: latido 4s infinite ease-in-out;
+.foto {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
-.galeria img:hover {
-    transform: scale(1.05);
-}
-
-/* Animaciones */
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes latido {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+.foto:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.05);
 }
