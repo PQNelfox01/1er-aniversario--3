@@ -78,3 +78,9 @@ body {
 .foto:hover {
   transform: scale(1.03);
 }
+
+@media (min-width: 1000px) {
+  .foto {
+    max-width: 500px;
+  }
+}
