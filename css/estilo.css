@@ -46,3 +46,21 @@ p {
     pointer-events: none;
     opacity: 0.5;
 }
+
+.imagen-portada {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ajustes para pantallas pequeñas (Android) */
+@media (max-width: 600px) {
+    .imagen-portada {
+        max-width: 100%;
+        height: auto;
+    }
+}

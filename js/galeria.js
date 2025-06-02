@@ -37,3 +37,22 @@ window.addEventListener('load', () => {
 
   autoScroll();
 });
+
+galeria.addEventListener('mouseenter', () => {
+  cancelAnimationFrame(autoScrollId);
+});
+
+galeria.addEventListener('mouseleave', () => {
+  autoScrollId = requestAnimationFrame(autoScroll);
+});
+
+let autoScrollId;
+
+function autoScroll() {
+  scrollAmount += scrollStep;
+  if (scrollAmount >= maxScroll) {
+    scrollAmount = 0;
+  }
+  galeria.scrollLeft = scrollAmount;
+  autoScrollId = requestAnimationFrame(autoScroll);
+}
