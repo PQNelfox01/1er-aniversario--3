@@ -78,6 +78,7 @@ body {
   filter: contrast(110%);
 }
 
+
 /* Responsive para celulares */
 @media (max-width: 768px) {
   .galeria-línea {
@@ -97,6 +98,8 @@ body {
   }
 }
 
+
+/* FOTO */
 .foto {
   aspect-ratio: 3 / 4; /* Proporción vertical tipo retrato */
   background-size: cover;

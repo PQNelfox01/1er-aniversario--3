@@ -12,11 +12,6 @@
   animation: aparecer 2s ease;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .firma {
   text-align: right;
   margin-top: 40px;
@@ -24,20 +19,40 @@
 }
 
 .botones {
-  text-align: center;
-  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .botones a {
+  padding: 10px 20px;
   background-color: #d76e6e;
   color: white;
-  padding: 12px 25px;
   text-decoration: none;
-  border-radius: 25px;
-  margin: 0 10px;
-  transition: background-color 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .botones a:hover {
   background-color: #b84848;
+}
+
+/* Movil */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .botones {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .botones a {
+    width: 80%;
+    text-align: center;
+  }
 }
