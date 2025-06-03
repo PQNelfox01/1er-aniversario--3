@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Animación de movimiento con el cursor en PC
   const fotos = document.querySelectorAll(".foto");
 
   fotos.forEach(foto => {
@@ -16,43 +17,32 @@ document.addEventListener("DOMContentLoaded", () => {
       e.target.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
     });
   });
-});
 
-window.addEventListener('load', () => {
+  // Scroll automático en la sección de otros momentos
   const galeria = document.querySelector('#otros-momentos .galeria-línea');
   if (!galeria) return;
 
   let scrollAmount = 0;
-  const scrollStep = 1; // píxeles a mover cada frame
-  const maxScroll = galeria.scrollWidth - galeria.clientWidth;
+  const scrollStep = 1; // velocidad de desplazamiento
+  let autoScrollId;
 
   function autoScroll() {
     scrollAmount += scrollStep;
-    if (scrollAmount >= maxScroll) {
-      scrollAmount = 0; // reset para loop
+    if (scrollAmount >= galeria.scrollWidth - galeria.clientWidth) {
+      scrollAmount = 0;
     }
     galeria.scrollLeft = scrollAmount;
-    requestAnimationFrame(autoScroll);
+    autoScrollId = requestAnimationFrame(autoScroll);
   }
 
   autoScroll();
+
+  // Detener el scroll cuando el cursor entra y reanudar al salir
+  galeria.addEventListener('mouseenter', () => {
+    cancelAnimationFrame(autoScrollId);
+  });
+
+  galeria.addEventListener('mouseleave', () => {
+    autoScroll();
+  });
 });
-
-galeria.addEventListener('mouseenter', () => {
-  cancelAnimationFrame(autoScrollId);
-});
-
-galeria.addEventListener('mouseleave', () => {
-  autoScrollId = requestAnimationFrame(autoScroll);
-});
-
-let autoScrollId;
-
-function autoScroll() {
-  scrollAmount += scrollStep;
-  if (scrollAmount >= maxScroll) {
-    scrollAmount = 0;
-  }
-  galeria.scrollLeft = scrollAmount;
-  autoScrollId = requestAnimationFrame(autoScroll);
-}
